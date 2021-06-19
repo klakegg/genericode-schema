@@ -111,7 +111,7 @@
             "type": "object",
             "additionalProperties": false,
             "patternProperties": {
-                "^.+$": {
+                "^\\S+$": {
                     "$ref": "#/definitions/column"
                 }
             }
@@ -175,7 +175,19 @@
                     "type": "string"
                 },
                 "column_ref": {
-                    "$ref": "#/definitions/type_stringlist"
+                    "oneOf": [
+                        {
+                            "type": "string",
+                            "pattern": "^\\S+$"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "pattern": "^\\S+$"
+                            }
+                        }
+                    ]
                 }
             }
         },

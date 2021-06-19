@@ -1,0 +1,55 @@
+{
+    "annotation": {
+        "http://release.niem.gov/niem/conformanceTargets/3.0/": {
+            "conformanceTargets": "http://reference.niem.gov/niem/specification/code-lists/1.0/#GenericodeCodeListDocument"
+        }
+    },
+    "identification": {
+        "short_name": "CaseTypeCode",
+        "version": 5,
+        "canonical_uri": "https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/CaseTypeCode",
+        "canonical_version_uri": "https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/CaseTypeCode/2018-12-18"
+    },
+    "columns": {
+        "code": {
+            "required": true,
+            "canonical_uri": "http://reference.niem.gov/niem/specification/code-lists/1.0/column/code",
+            "data_type": "normalizedString",
+            "data_language": "en"
+        },
+        "definition": {
+            "canonical_uri": "http://reference.niem.gov/niem/specification/code-lists/1.0/column/definition",
+            "data_type": "normalizedString",
+            "data_language": "en"
+        }
+    },
+    "keys": {
+        "codeKey": {
+            "short_name": "CodeKey",
+            "column_ref": "code"
+        }
+    },
+    "codes": [
+        {
+            "code": "appellate"
+        },
+        {
+            "code": "bankruptcy"
+        },
+        {
+            "code": "citation"
+        },
+        {
+            "code": "civil"
+        },
+        {
+            "code": "criminal"
+        },
+        {
+            "code": "domestic"
+        },
+        {
+            "code": "juvenile"
+        }
+    ]
+}

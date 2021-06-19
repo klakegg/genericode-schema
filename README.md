@@ -8,3 +8,5 @@ Known bugs:
 Typos detected in specification:
 
 * documnent
+
+Convertion from YAML to JSON may be done here: https://onlineyamltools.com/convert-yaml-to-json

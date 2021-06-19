@@ -4,6 +4,14 @@
         "*.gcj": "json",
         "*.gcy": "yaml"
     },
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "*.gcj"
+            ],
+            "url": "./schema/json/genericode-1.0.json"
+        }
+    ],
     "yaml.schemas": {
         "schema/json/genericode-1.0.json": "*.gcy"
     }
