@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.gc": "xml",
+        "*.gcj": "json",
+        "*.gcy": "yaml"
+    },
+    "yaml.schemas": {
+        "schema/json/genericode-1.0.json": "*.gcy"
+    }
+}

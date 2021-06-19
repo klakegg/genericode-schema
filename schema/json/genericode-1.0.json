@@ -1,0 +1,170 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$ref": "#/definitions/document",
+    "definitions": {
+        "document": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "identification",
+                "column_set",
+                "codelist"
+            ],
+            "properties": {
+                "annotation": {
+                    "type": "object"
+                },
+                "identification": {
+                    "$ref": "#/definitions/identification"
+                },
+                "column_set": {
+                    "$ref": "#/definitions/column_set"
+                },
+                "codelist": {
+                    "$ref": "#/definitions/codelist"
+                }
+            }
+        },
+        "identification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "short_name",
+                "version",
+                "canonical_uri",
+                "canonical_version_uri"
+            ],
+            "properties": {
+                "short_name": {
+                    "type": "string"
+                },
+                "long_name": {
+                    "type": "string"
+                },
+                "version": {
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "number"
+                        }
+                    ]
+                },
+                "canonical_uri": {
+                    "type": "string"
+                },
+                "canonical_version_uri": {
+                    "type": "string"
+                },
+                "agency": {
+                    "$ref": "#/definitions/agency"
+                }
+            }
+        },
+        "agency": {
+            "type": "object",
+            "additionalProperties": false
+        },
+        "column_set": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "columns": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^.+$": {
+                            "$ref": "#/definitions/column"
+                        }
+                    }
+                },
+                "keys": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^.+$": {
+                            "$ref": "#/definitions/key"
+                        }
+                    }
+                }
+            }
+        },
+        "column": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "short_name": {
+                    "type": "string"
+                },
+                "long_name": {
+                    "type": "string"
+                },
+                "required": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "canonical_uri": {
+                    "type": "string"
+                },
+                "data_type": {
+                    "type": "string",
+                    "enum": [
+                        "normalizedString",
+                        "string",
+                        "token",
+                        "boolean",
+                        "decimal"
+                    ]
+                },
+                "data_language": {
+                    "type": "string",
+                    "pattern": "^[a-z]{2}$"
+                }
+            }
+        },
+        "key": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "column_ref"
+            ],
+            "properties": {
+                "short_name": {
+                    "type": "string"
+                },
+                "long_name": {
+                    "type": "string"
+                },
+                "column_ref": {
+                    "type": "string"
+                }
+            }
+        },
+        "codelist": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/row"
+            }
+        },
+        "row": {
+            "type": "object",
+            "patternProperties": {
+                "^.+$": {
+                    "oneOf": [
+                        {
+                            "type": "boolean"
+                        },
+                        {
+                            "type": "integer"
+                        },
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
