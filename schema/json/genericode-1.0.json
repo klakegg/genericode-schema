@@ -3,29 +3,37 @@
     "$ref": "#/definitions/document",
     "definitions": {
         "document": {
+            "title": "Genericode document",
             "type": "object",
             "additionalProperties": false,
             "required": [
                 "identification",
-                "column_set",
-                "codelist"
+                "columns",
+                "keys"
             ],
             "properties": {
+                "$schema": {
+                    "type": "string"
+                },
                 "annotation": {
                     "type": "object"
                 },
                 "identification": {
                     "$ref": "#/definitions/identification"
                 },
-                "column_set": {
-                    "$ref": "#/definitions/column_set"
+                "columns": {
+                    "$ref": "#/definitions/columns"
                 },
-                "codelist": {
-                    "$ref": "#/definitions/codelist"
+                "keys": {
+                    "$ref": "#/definitions/keys"
+                },
+                "codes": {
+                    "$ref": "#/definitions/codes"
                 }
             }
         },
         "identification": {
+            "description": "Identification and location information (metadata).",
             "type": "object",
             "additionalProperties": false,
             "required": [
@@ -36,12 +44,15 @@
             ],
             "properties": {
                 "short_name": {
+                    "description": "Short name (without white space).­",
                     "type": "string"
                 },
                 "long_name": {
+                    "description": "Human-readable name.",
                     "type": "string"
                 },
                 "version": {
+                    "description": "Version identifier.",
                     "oneOf": [
                         {
                             "type": "string"
@@ -52,39 +63,54 @@
                     ]
                 },
                 "canonical_uri": {
+                    "description": "Canonical URI which uniquely identifies all versions (collective­ly).",
                     "type": "string"
                 },
                 "canonical_version_uri": {
+                    "description": "Canonical URI which uniquely identifies this version.",
                     "type": "string"
                 },
+                "location_uri": {
+                    "description": "Suggested retrieval location for this version, in genericode for­mat.",
+                    "$ref": "#/definitions/stringlist"
+                },
+                "alternative_format_location_uri": {
+                    "description": "Suggested retrieval location for this version, in a non-genericode format.",
+                    "$ref": "#/definitions/stringlist"
+                },
                 "agency": {
+                    "description": "Agency that is responsible for publication and/or maintenance of the information.",
                     "$ref": "#/definitions/agency"
                 }
             }
         },
         "agency": {
-            "type": "object",
-            "additionalProperties": false
-        },
-        "column_set": {
+            "description": "Details of an agency which produces code lists or related artifacts.",
             "type": "object",
             "additionalProperties": false,
+            "required": [
+                "short_name"
+            ],
             "properties": {
-                "columns": {
-                    "type": "object",
-                    "patternProperties": {
-                        "^.+$": {
-                            "$ref": "#/definitions/column"
-                        }
-                    }
+                "short_name": {
+                    "description": "Short name (without whitespace) for the agency.",
+                    "type": "string"
                 },
-                "keys": {
-                    "type": "object",
-                    "patternProperties": {
-                        "^.+$": {
-                            "$ref": "#/definitions/key"
-                        }
-                    }
+                "long_name": {
+                    "description": "Human-readable name for the agency.",
+                    "type": "string"
+                },
+                "identifier": {
+                    "description": "Identifier for the agency.",
+                    "type": "string"
+                }
+            }
+        },
+        "columns": {
+            "type": "object",
+            "patternProperties": {
+                "^.+$": {
+                    "$ref": "#/definitions/column"
                 }
             }
         },
@@ -121,6 +147,14 @@
                 }
             }
         },
+        "keys": {
+            "type": "object",
+            "patternProperties": {
+                "^.+$": {
+                    "$ref": "#/definitions/key"
+                }
+            }
+        },
         "key": {
             "type": "object",
             "additionalProperties": false,
@@ -135,11 +169,11 @@
                     "type": "string"
                 },
                 "column_ref": {
-                    "type": "string"
+                    "$ref": "#/definitions/stringlist"
                 }
             }
         },
-        "codelist": {
+        "codes": {
             "type": "array",
             "items": {
                 "$ref": "#/definitions/row"
@@ -147,6 +181,7 @@
         },
         "row": {
             "type": "object",
+            "minProperties": 1,
             "patternProperties": {
                 "^.+$": {
                     "oneOf": [
@@ -165,6 +200,19 @@
                     ]
                 }
             }
+        },
+        "stringlist": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            ]
         }
     }
 }

@@ -1,7 +1,10 @@
-**This project is a currently a playground.**
+**This project is currently a playground.**
 
 Known bugs:
 
-* Agency is not fully modelled
 * Complete list of data types is missing
-* A lot of complexity
+* A lot of complexity is missing
+
+Typos detected in specification:
+
+* documnent
