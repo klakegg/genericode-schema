@@ -21,9 +21,9 @@ identification:
 columns:
   code:
     # short_name skipped as it is the same as the column id.
-    required: true
+    required: true # Could we skip this as the columns is referenced from a key and thus required?
     canonical_uri: http://reference.niem.gov/niem/specification/code-lists/1.0/column/code
-    data_type: normalizedString
+    data_type: normalizedString # Would it be possible to define a default value here?
     data_language: en
   definition:
     # short_name skipped as it is the same as the column id.
@@ -42,6 +42,6 @@ codes:
   - code: bankruptcy
   - code: citation
   - code: civil
-  - code: cirminal
+  - code: criminal
   - code: domestic
   - code: juvenile

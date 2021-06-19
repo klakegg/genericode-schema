@@ -45,7 +45,7 @@
             "properties": {
                 "short_name": {
                     "description": "Short name (without white space).­",
-                    "type": "string"
+                    "$ref": "#/definitions/field_short_name"
                 },
                 "long_name": {
                     "description": "Human-readable name.",
@@ -72,11 +72,11 @@
                 },
                 "location_uri": {
                     "description": "Suggested retrieval location for this version, in genericode for­mat.",
-                    "$ref": "#/definitions/stringlist"
+                    "$ref": "#/definitions/type_stringlist"
                 },
                 "alternative_format_location_uri": {
                     "description": "Suggested retrieval location for this version, in a non-genericode format.",
-                    "$ref": "#/definitions/stringlist"
+                    "$ref": "#/definitions/type_stringlist"
                 },
                 "agency": {
                     "description": "Agency that is responsible for publication and/or maintenance of the information.",
@@ -94,7 +94,7 @@
             "properties": {
                 "short_name": {
                     "description": "Short name (without whitespace) for the agency.",
-                    "type": "string"
+                    "$ref": "#/definitions/field_short_name"
                 },
                 "long_name": {
                     "description": "Human-readable name for the agency.",
@@ -107,7 +107,9 @@
             }
         },
         "columns": {
+            "description": "List of columns.",
             "type": "object",
+            "additionalProperties": false,
             "patternProperties": {
                 "^.+$": {
                     "$ref": "#/definitions/column"
@@ -115,11 +117,12 @@
             }
         },
         "column": {
+            "description": "Column definition.",
             "type": "object",
             "additionalProperties": false,
             "properties": {
                 "short_name": {
-                    "type": "string"
+                    "$ref": "#/definitions/field_short_name"
                 },
                 "long_name": {
                     "type": "string"
@@ -148,14 +151,17 @@
             }
         },
         "keys": {
+            "description": "List of keys.",
             "type": "object",
+            "additionalProperties": false,
             "patternProperties": {
-                "^.+$": {
+                "^\\S+$": {
                     "$ref": "#/definitions/key"
                 }
             }
         },
         "key": {
+            "description": "Key definition.",
             "type": "object",
             "additionalProperties": false,
             "required": [
@@ -163,13 +169,13 @@
             ],
             "properties": {
                 "short_name": {
-                    "type": "string"
+                    "$ref": "#/definitions/field_short_name"
                 },
                 "long_name": {
                     "type": "string"
                 },
                 "column_ref": {
-                    "$ref": "#/definitions/stringlist"
+                    "$ref": "#/definitions/type_stringlist"
                 }
             }
         },
@@ -182,8 +188,9 @@
         "row": {
             "type": "object",
             "minProperties": 1,
+            "additionalProperties": false,
             "patternProperties": {
-                "^.+$": {
+                "^\\S+$": {
                     "oneOf": [
                         {
                             "type": "boolean"
@@ -201,7 +208,11 @@
                 }
             }
         },
-        "stringlist": {
+        "field_short_name": {
+            "type": "string",
+            "pattern": "^\\S+$"
+        },
+        "type_stringlist": {
             "oneOf": [
                 {
                     "type": "string"
