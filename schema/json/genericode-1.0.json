@@ -7,27 +7,27 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
-                "identification",
-                "columns",
-                "keys"
+                "Identification",
+                "Columns",
+                "Keys"
             ],
             "properties": {
                 "$schema": {
                     "type": "string"
                 },
-                "annotation": {
+                "Annotation": {
                     "type": "object"
                 },
-                "identification": {
+                "Identification": {
                     "$ref": "#/definitions/identification"
                 },
-                "columns": {
+                "Columns": {
                     "$ref": "#/definitions/columns"
                 },
-                "keys": {
+                "Keys": {
                     "$ref": "#/definitions/keys"
                 },
-                "codes": {
+                "Codes": {
                     "$ref": "#/definitions/codes"
                 }
             }
@@ -37,21 +37,21 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
-                "short_name",
-                "version",
-                "canonical_uri",
-                "canonical_version_uri"
+                "ShortName",
+                "Version",
+                "CanonicalUri",
+                "CanonicalVersionUri"
             ],
             "properties": {
-                "short_name": {
+                "ShortName": {
                     "description": "Short name (without white space).­",
                     "$ref": "#/definitions/field_short_name"
                 },
-                "long_name": {
+                "LongName": {
                     "description": "Human-readable name.",
-                    "type": "string"
+                    "$ref": "#/definitions/type_translateable_string"
                 },
-                "version": {
+                "Version": {
                     "description": "Version identifier.",
                     "oneOf": [
                         {
@@ -62,23 +62,23 @@
                         }
                     ]
                 },
-                "canonical_uri": {
+                "CanonicalUri": {
                     "description": "Canonical URI which uniquely identifies all versions (collective­ly).",
                     "type": "string"
                 },
-                "canonical_version_uri": {
+                "CanonicalVersionUri": {
                     "description": "Canonical URI which uniquely identifies this version.",
                     "type": "string"
                 },
-                "location_uri": {
+                "LocationUri": {
                     "description": "Suggested retrieval location for this version, in genericode for­mat.",
                     "$ref": "#/definitions/type_stringlist"
                 },
-                "alternative_format_location_uri": {
+                "AlternativeFormatLocationUri": {
                     "description": "Suggested retrieval location for this version, in a non-genericode format.",
                     "$ref": "#/definitions/type_stringlist"
                 },
-                "agency": {
+                "Agency": {
                     "description": "Agency that is responsible for publication and/or maintenance of the information.",
                     "$ref": "#/definitions/agency"
                 }
@@ -89,18 +89,18 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
-                "short_name"
+                "ShortName"
             ],
             "properties": {
-                "short_name": {
+                "ShortName": {
                     "description": "Short name (without whitespace) for the agency.",
                     "$ref": "#/definitions/field_short_name"
                 },
-                "long_name": {
+                "LongName": {
                     "description": "Human-readable name for the agency.",
-                    "type": "string"
+                    "$ref": "#/definitions/type_translateable_string"
                 },
-                "identifier": {
+                "Identifier": {
                     "description": "Identifier for the agency.",
                     "type": "string"
                 }
@@ -120,21 +120,24 @@
             "description": "Column definition.",
             "type": "object",
             "additionalProperties": false,
+            "required": [
+                "ShortName"
+            ],
             "properties": {
-                "short_name": {
+                "ShortName": {
                     "$ref": "#/definitions/field_short_name"
                 },
-                "long_name": {
-                    "type": "string"
+                "LongName": {
+                    "$ref": "#/definitions/type_translateable_string"
                 },
-                "required": {
+                "Required": {
                     "type": "boolean",
                     "default": false
                 },
-                "canonical_uri": {
+                "CanonicalUri": {
                     "type": "string"
                 },
-                "data_type": {
+                "DataType": {
                     "type": "string",
                     "enum": [
                         "normalizedString",
@@ -144,7 +147,7 @@
                         "decimal"
                     ]
                 },
-                "data_language": {
+                "DataLanguage": {
                     "type": "string",
                     "pattern": "^[a-z]{2}$"
                 }
@@ -165,16 +168,17 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
-                "column_ref"
+                "ShortName",
+                "ColumnRef"
             ],
             "properties": {
-                "short_name": {
+                "ShortName": {
                     "$ref": "#/definitions/field_short_name"
                 },
-                "long_name": {
+                "LongName": {
                     "type": "string"
                 },
-                "column_ref": {
+                "ColumnRef": {
                     "oneOf": [
                         {
                             "type": "string",
@@ -208,9 +212,6 @@
                             "type": "boolean"
                         },
                         {
-                            "type": "integer"
-                        },
-                        {
                             "type": "number"
                         },
                         {
@@ -233,6 +234,21 @@
                     "type": "array",
                     "items": {
                         "type": "string"
+                    }
+                }
+            ]
+        },
+        "type_translateable_string": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "object",
+                    "patternProperties": {
+                        "^.+$": {
+                            "type": "string"
+                        }
                     }
                 }
             ]

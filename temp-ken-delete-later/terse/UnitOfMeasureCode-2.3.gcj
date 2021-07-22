@@ -1,16 +1,9 @@
 {
   "Identification": {
     "ShortName": "UnitOfMeasureCode",
-    "LongName": [
-      {
-        "http://www.w3.org/XML/1998/namespace": {
-          "lang": "en"
-          }
-        },
-      {
-        "Identifier": "listID"
-        }
-      ],
+    "LongName": {
+      "en": "UNECE Recommendation N°. 20 - Codes for Units of Measure Used in International Trade"
+      },
     "Version": "12e_2016",
     "CanonicalUri": "urn:oasis:names:specification:ubl:codelist:gc:UnitOfMeasureCode",
     "CanonicalVersionUri": "urn:oasis:names:specification:ubl:codelist:gc:UnitOfMeasureCode:2.3",

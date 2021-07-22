@@ -1,55 +1,57 @@
 {
-    "annotation": {
-        "http://release.niem.gov/niem/conformanceTargets/3.0/": {
-            "conformanceTargets": "http://reference.niem.gov/niem/specification/code-lists/1.0/#GenericodeCodeListDocument"
-        }
+  "Annotation": {
+    "http://release.niem.gov/niem/conformanceTargets/3.0/": {
+      "conformanceTargets": "http://reference.niem.gov/niem/specification/code-lists/1.0/#GenericodeCodeListDocument"
+    }
+  },
+  "Identification": {
+    "ShortName": "CaseTypeCode",
+    "Version": 5.0,
+    "CanonicalUri": "https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/CaseTypeCode",
+    "CanonicalVersionUri": "https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/CaseTypeCode/2018-12-18"
+  },
+  "Columns": {
+    "code": {
+      "ShortName": "code",
+      "Required": true,
+      "CanonicalUri": "http://reference.niem.gov/niem/specification/code-lists/1.0/column/code",
+      "DataType": "normalizedString",
+      "DataLanguage": "en"
     },
-    "identification": {
-        "short_name": "CaseTypeCode",
-        "version": 5,
-        "canonical_uri": "https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/CaseTypeCode",
-        "canonical_version_uri": "https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/CaseTypeCode/2018-12-18"
+    "definition": {
+      "ShortName": "definition",
+      "CanonicalUri": "http://reference.niem.gov/niem/specification/code-lists/1.0/column/definition",
+      "DataType": "normalizedString",
+      "DataLanguage": "en"
+    }
+  },
+  "Keys": {
+    "codeKey": {
+      "ShortName": "CodeKey",
+      "ColumnRef": "code"
+    }
+  },
+  "Codes": [
+    {
+      "code": "appellate"
     },
-    "columns": {
-        "code": {
-            "required": true,
-            "canonical_uri": "http://reference.niem.gov/niem/specification/code-lists/1.0/column/code",
-            "data_type": "normalizedString",
-            "data_language": "en"
-        },
-        "definition": {
-            "canonical_uri": "http://reference.niem.gov/niem/specification/code-lists/1.0/column/definition",
-            "data_type": "normalizedString",
-            "data_language": "en"
-        }
+    {
+      "code": "bankruptcy"
     },
-    "keys": {
-        "codeKey": {
-            "short_name": "CodeKey",
-            "column_ref": "code"
-        }
+    {
+      "code": "citation"
     },
-    "codes": [
-        {
-            "code": "appellate"
-        },
-        {
-            "code": "bankruptcy"
-        },
-        {
-            "code": "citation"
-        },
-        {
-            "code": "civil"
-        },
-        {
-            "code": "criminal"
-        },
-        {
-            "code": "domestic"
-        },
-        {
-            "code": "juvenile"
-        }
-    ]
+    {
+      "code": "civil"
+    },
+    {
+      "code": "criminal"
+    },
+    {
+      "code": "domestic"
+    },
+    {
+      "code": "juvenile"
+    }
+  ]
 }

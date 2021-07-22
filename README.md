@@ -1,5 +1,7 @@
 **This project is currently a playground.**
 
+Specification repository: https://github.com/oasis-tcs/codelist-genericode
+
 Known bugs:
 
 * Complete list of data types is missing

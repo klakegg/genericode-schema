@@ -5,39 +5,40 @@
 # Source: https://docs.oasis-open.org/legalxml-courtfiling/ecf/v5.0/cs01/schema/
 # Latest version of narrative specification: http://docs.oasis-open.org/legalxml-courtfiling/ecf/v5.0/ecf-v5.0.html
 # TC IPR Statement: https://www.oasis-open.org/committees/legalxml-courtfiling/ipr.php
+
 # Converted to YAML file format by the OASIS Genericode TC
 
 # Testing out an alternative way of representing annotations - may be difficult when it comes to automatic converting but of interest to the users.
-annotation:
+Annotation:
   http://release.niem.gov/niem/conformanceTargets/3.0/:
     conformanceTargets: http://reference.niem.gov/niem/specification/code-lists/1.0/#GenericodeCodeListDocument
 
-identification:
-  short_name: CaseTypeCode
-  version: 5.0
-  canonical_uri: https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/CaseTypeCode
-  canonical_version_uri: https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/CaseTypeCode/2018-12-18
+Identification:
+  ShortName: CaseTypeCode
+  Version: 5.0
+  CanonicalUri: https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/CaseTypeCode
+  CanonicalVersionUri: https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/CaseTypeCode/2018-12-18
 
-columns:
+Columns:
   code:
-    # short_name skipped as it is the same as the column id.
-    required: true # Could we skip this as the columns is referenced from a key and thus required?
-    canonical_uri: http://reference.niem.gov/niem/specification/code-lists/1.0/column/code
-    data_type: normalizedString # Would it be possible to define a default value here?
-    data_language: en
+    ShortName: code
+    Required: true
+    CanonicalUri: http://reference.niem.gov/niem/specification/code-lists/1.0/column/code
+    DataType: normalizedString # Would it be possible to define a default value here?
+    DataLanguage: en
   definition:
-    # short_name skipped as it is the same as the column id.
-    # required skipped as the use is optional by default.
-    canonical_uri: http://reference.niem.gov/niem/specification/code-lists/1.0/column/definition
-    data_type: normalizedString
-    data_language: en
+    # `Required` skipped as the use is optional by default.
+    ShortName: definition
+    CanonicalUri: http://reference.niem.gov/niem/specification/code-lists/1.0/column/definition
+    DataType: normalizedString
+    DataLanguage: en
 
-keys:
+Keys:
   codeKey:
-    short_name: CodeKey
-    column_ref: code
+    ShortName: CodeKey
+    ColumnRef: code
 
-codes:
+Codes:
   - code: appellate
   - code: bankruptcy
   - code: citation
