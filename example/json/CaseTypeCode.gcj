@@ -10,27 +10,30 @@
     "CanonicalUri": "https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/CaseTypeCode",
     "CanonicalVersionUri": "https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/CaseTypeCode/2018-12-18"
   },
-  "Columns": {
-    "code": {
+  "Columns": [
+    {
+      "Id": "code",
       "ShortName": "code",
       "Required": true,
       "CanonicalUri": "http://reference.niem.gov/niem/specification/code-lists/1.0/column/code",
       "DataType": "normalizedString",
       "DataLanguage": "en"
     },
-    "definition": {
+    {
+      "Id": "definition",
       "ShortName": "definition",
       "CanonicalUri": "http://reference.niem.gov/niem/specification/code-lists/1.0/column/definition",
       "DataType": "normalizedString",
       "DataLanguage": "en"
     }
-  },
-  "Keys": {
-    "codeKey": {
+  ],
+  "Keys": [
+    {
+      "Id": "codeKey",
       "ShortName": "CodeKey",
       "ColumnRef": "code"
     }
-  },
+  ],
   "Codes": [
     {
       "code": "appellate"

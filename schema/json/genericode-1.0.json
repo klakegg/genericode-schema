@@ -108,12 +108,9 @@
         },
         "columns": {
             "description": "List of columns.",
-            "type": "object",
-            "additionalProperties": false,
-            "patternProperties": {
-                "^\\S+$": {
-                    "$ref": "#/definitions/column"
-                }
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/column"
             }
         },
         "column": {
@@ -121,9 +118,13 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
+                "Id",
                 "ShortName"
             ],
             "properties": {
+                "Id": {
+                    "type": "string"
+                },
                 "ShortName": {
                     "$ref": "#/definitions/field_short_name"
                 },
@@ -155,12 +156,9 @@
         },
         "keys": {
             "description": "List of keys.",
-            "type": "object",
-            "additionalProperties": false,
-            "patternProperties": {
-                "^\\S+$": {
-                    "$ref": "#/definitions/key"
-                }
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/key"
             }
         },
         "key": {
@@ -168,10 +166,14 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
+                "Id",
                 "ShortName",
                 "ColumnRef"
             ],
             "properties": {
+                "Id": {
+                    "type": "string"
+                },
                 "ShortName": {
                     "$ref": "#/definitions/field_short_name"
                 },

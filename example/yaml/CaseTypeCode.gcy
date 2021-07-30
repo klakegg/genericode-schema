@@ -20,13 +20,13 @@ Identification:
   CanonicalVersionUri: https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/CaseTypeCode/2018-12-18
 
 Columns:
-  code:
+  - Id: code
     ShortName: code
     Required: true
     CanonicalUri: http://reference.niem.gov/niem/specification/code-lists/1.0/column/code
     DataType: normalizedString # Would it be possible to define a default value here?
     DataLanguage: en
-  definition:
+  - Id: definition
     # `Required` skipped as the use is optional by default.
     ShortName: definition
     CanonicalUri: http://reference.niem.gov/niem/specification/code-lists/1.0/column/definition
@@ -34,7 +34,7 @@ Columns:
     DataLanguage: en
 
 Keys:
-  codeKey:
+  - Id: codeKey
     ShortName: CodeKey
     ColumnRef: code
 
