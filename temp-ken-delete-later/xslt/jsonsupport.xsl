@@ -7,48 +7,13 @@
                 exclude-result-prefixes="xs gu xsd"
                 version="2.0">
 
-<xs:doc info="$Id: Crane-commonjson.xsl,v 1.3 2016/12/30 15:34:20 admin Exp $"
-        filename="Crane-commonjson.xsl" vocabulary="DocBook" internal-ns="gu">
+<xs:doc info="20210811-0130z"
+        filename="jsonsupport.xsl" vocabulary="DocBook" internal-ns="gu">
   <xs:title>Common code for handling JSON</xs:title>
   <para>
     Support for serializing JSON structures: objects, Boolean values, 
     number, strings, lists of string or number items.
   </para>
-  <programlisting></programlisting>
-  <section>
-    <title>Copyright and disclaimer</title>
-<programlisting>Copyright (C) - Crane Softwrights Ltd.
-              - <ulink url="http://www.CraneSoftwrights.com/links/res-dev.htm">http://www.CraneSoftwrights.com/links/res-dev.htm</ulink>
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-- Redistributions of source code must retain the above copyright notice,
-  this list of conditions and the following disclaimer.
-- Redistributions in binary form must reproduce the above copyright notice,
-  this list of conditions and the following disclaimer in the documentation
-  and/or other materials provided with the distribution.
-- The name of the author may not be used to endorse or promote products
-  derived from this software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
-IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
-OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN
-NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
-TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
-EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-Note: for your reference, the above is the "Modified BSD license", this text
-      was obtained 2003-07-26 at <ulink
-url="http://www.xfree86.org/3.3.6/COPYRIGHT2.html#5">http://www.xfree86.org/3.3.6/COPYRIGHT2.html#5</ulink>
-
-THE AUTHOR MAKES NO REPRESENTATION ABOUT THE SUITABILITY OF THIS CODE FOR ANY
-PURPOSE.</programlisting>
-    </section>
 </xs:doc>
 
 <xs:template>

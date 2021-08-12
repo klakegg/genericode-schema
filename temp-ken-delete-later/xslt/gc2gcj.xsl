@@ -10,9 +10,9 @@
                 exclude-result-prefixes="xs xsd gu gc gca"
                 version="2.0">
 
-<xsl:import href="Crane-commonjson.xsl"/>
+<xsl:import href="jsonsupport.xsl"/>
 
-<xs:doc info="20210713-0100z"
+<xs:doc info="20210811-0130z"
         filename="gc2gcj.xsl" vocabulary="DocBook">
   <xs:title>Convert genericode XML to genericode JSON</xs:title>
   <para>
@@ -74,9 +74,11 @@
     Annotations serialize the application info based on the namespaces in use.
   </para>
 </xs:template>
-<xsl:template match="Annotation">
+<xsl:template match="Annotation[AppInfo]">
   <o n="Annotation">
-    <xsl:apply-templates/>
+    <xsl:for-each select="AppInfo">
+      <xsl:call-template name="gu:handleGenericElement"/>
+    </xsl:for-each>
   </o>
 </xsl:template>
 
@@ -85,8 +87,60 @@
     Most elements can be transliterated.
   </para>
 </xs:template>
-<xsl:template match="AppInfo | Identification | ColumnSet | SimpleCodeList">
+<xsl:template match="AppInfo | Identification | SimpleCodeList">
   <xsl:apply-templates select="." mode="gu:generic"/>
+</xsl:template>
+
+<xs:template>
+  <para>
+    Column sets serialize the column and key components separately
+  </para>
+</xs:template>
+<xsl:template match="ColumnSet">
+  <l n="Columns">
+    <xsl:for-each select="Column">
+      <o>
+        <xsl:if test="@Use='required'">
+          <s n="Required" v="true"/>
+        </xsl:if>
+        <xsl:call-template name="gu:handleGenericElement">
+          <xsl:with-param name="exceptions" select="@Use"/>
+        </xsl:call-template>
+      </o>
+    </xsl:for-each>
+  </l>
+  <l n="Keys">
+    <xsl:for-each select="Key">
+      <o>
+        <xsl:call-template name="gu:handleGenericElement"/>
+      </o>
+    </xsl:for-each>
+  </l>
+</xsl:template>
+
+<xs:template>
+  <para>
+    Column sets serialize the column and key components separately
+  </para>
+</xs:template>
+<xsl:template match="Data" mode="gu:generic">
+  <xsl:for-each select="@Type">
+    <s n="DataType" v="{.}"/>
+  </xsl:for-each>
+  <xsl:for-each select="@Lang">
+    <s n="DataLanguage" v="{.}"/>
+  </xsl:for-each>
+</xsl:template>
+
+<xs:template>
+  <para>
+    Column references are handled explicitly
+  </para>
+</xs:template>
+<xsl:template match="ColumnRef" mode="gu:generic">
+  <xsl:for-each select="@Ref">
+    <s n="ColumnRef" v="{.}"/>
+  </xsl:for-each>
 </xsl:template>
 
 <xs:template>
@@ -161,10 +215,15 @@
   <para>
     Handle a given generic element
   </para>
+  <xs:param name="exceptions">
+    <para>Which nodes are not to be handled</para>
+  </xs:param>
 </xs:template>
 <xsl:template name="gu:handleGenericElement">
+  <xsl:param name="exceptions" as="node()*"/>
   <!--first do the attributes-->
-  <xsl:for-each-group select="@*" group-by="namespace-uri(.)">
+  <xsl:for-each-group select="@* except $exceptions"
+                      group-by="namespace-uri(.)">
     <xsl:choose>
       <xsl:when test="namespace-uri(.) = ''">
         <xsl:for-each select="current-group()">
@@ -182,7 +241,8 @@
   </xsl:for-each-group>
 
   <!--next do the elements-->
-  <xsl:for-each-group select="*" group-by="namespace-uri(.)">
+  <xsl:for-each-group select="* except $exceptions"
+                      group-by="namespace-uri(.)">
     <xsl:choose>
       <xsl:when test="namespace-uri(.) = ''">
         <xsl:call-template name="gu:handleGenericElementContent"/>
@@ -194,6 +254,11 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:for-each-group>
+  
+  <!--if no elements, then this is a string value-->
+  <xsl:if test="not(*)">
+    <s n="_" v="{.}"/>
+  </xsl:if>
 </xsl:template>
 
 <xs:template>

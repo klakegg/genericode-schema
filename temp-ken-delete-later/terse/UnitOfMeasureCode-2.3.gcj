@@ -1,129 +1,127 @@
 {
   "Identification": {
     "ShortName": "UnitOfMeasureCode",
-    "LongName": {
-      "en": "UNECE Recommendation N°. 20 - Codes for Units of Measure Used in International Trade"
-      },
+    "LongName": [
+      {
+        "http://www.w3.org/XML/1998/namespace": {
+          "lang": "en"
+          },
+        "_": "Unit Of Measure Code"
+        },
+      {
+        "Identifier": "listID",
+        "_": "UNECE Recommendation N°. 20 - Codes for Units of Measure Used in International Trade"
+        }
+      ],
     "Version": "12e_2016",
     "CanonicalUri": "urn:oasis:names:specification:ubl:codelist:gc:UnitOfMeasureCode",
     "CanonicalVersionUri": "urn:oasis:names:specification:ubl:codelist:gc:UnitOfMeasureCode:2.3",
     "LocationUri": "http://docs.oasis-open.org/ubl/os-UBL-2.3/cl/gc/default/UnitOfMeasureCode-2.3.gc",
     "AlternateFormatLocationUri": {
-      "MimeType": "application/vnd.ms-excel"
+      "MimeType": "application/vnd.ms-excel",
+      "_": "jar:https://www.unece.org/fileadmin/DAM/cefact/recommendations/rec20/rec20.zip!/rec20/rec20_Rev13e_2017.xls"
       },
     "Agency": {
       "LongName": {
         "http://www.w3.org/XML/1998/namespace": {
           "lang": "en"
-          }
+          },
+        "_": "United Nations Economic Commission for Europe"
         },
       "Identifier": {
-        "Identifier": "http://www.unece.org/trade/untdid/d18a/tred/tred3055.htm"
+        "Identifier": "http://www.unece.org/trade/untdid/d18a/tred/tred3055.htm",
+        "_": "6"
         }
       }
     },
-  "ColumnSet": {
-    "Column": [
-      {
-        "Id": "status",
-        "Use": "optional",
-        "ShortName": "Status",
-        "LongName": {
-          "http://www.w3.org/XML/1998/namespace": {
-            "lang": "en"
-            }
+  "Columns": [
+    {
+      "Id": "status",
+      "ShortName": "Status",
+      "LongName": {
+        "http://www.w3.org/XML/1998/namespace": {
+          "lang": "en"
           },
-        "Data": {
-          "Type": "normalizedString"
-          }
+        "_": "Status"
         },
-      {
-        "Id": "code",
-        "Use": "required",
-        "ShortName": "Code",
-        "LongName": {
-          "http://www.w3.org/XML/1998/namespace": {
-            "lang": "en"
-            }
+      "DataType": "normalizedString"
+      },
+    {
+      "Required": "true",
+      "Id": "code",
+      "ShortName": "Code",
+      "LongName": {
+        "http://www.w3.org/XML/1998/namespace": {
+          "lang": "en"
           },
-        "Data": {
-          "Type": "normalizedString"
-          }
+        "_": "Common Code"
         },
-      {
-        "Id": "name",
-        "Use": "required",
-        "ShortName": "Name",
-        "LongName": {
-          "http://www.w3.org/XML/1998/namespace": {
-            "lang": "en"
-            }
+      "DataType": "normalizedString"
+      },
+    {
+      "Required": "true",
+      "Id": "name",
+      "ShortName": "Name",
+      "LongName": {
+        "http://www.w3.org/XML/1998/namespace": {
+          "lang": "en"
           },
-        "Data": {
-          "Type": "string"
-          }
+        "_": "Name"
         },
-      {
-        "Id": "description",
-        "Use": "optional",
-        "ShortName": "Description",
-        "LongName": {
-          "http://www.w3.org/XML/1998/namespace": {
-            "lang": "en"
-            }
+      "DataType": "string"
+      },
+    {
+      "Id": "description",
+      "ShortName": "Description",
+      "LongName": {
+        "http://www.w3.org/XML/1998/namespace": {
+          "lang": "en"
           },
-        "Data": {
-          "Type": "string"
-          }
+        "_": "Description"
         },
-      {
-        "Id": "levelcategory",
-        "Use": "optional",
-        "ShortName": "LevelCategory",
-        "LongName": {
-          "http://www.w3.org/XML/1998/namespace": {
-            "lang": "en"
-            }
+      "DataType": "string"
+      },
+    {
+      "Id": "levelcategory",
+      "ShortName": "LevelCategory",
+      "LongName": {
+        "http://www.w3.org/XML/1998/namespace": {
+          "lang": "en"
           },
-        "Data": {
-          "Type": "string"
-          }
+        "_": "Level / Category"
         },
-      {
-        "Id": "symbol",
-        "Use": "optional",
-        "ShortName": "Symbol",
-        "LongName": {
-          "http://www.w3.org/XML/1998/namespace": {
-            "lang": "en"
-            }
+      "DataType": "string"
+      },
+    {
+      "Id": "symbol",
+      "ShortName": "Symbol",
+      "LongName": {
+        "http://www.w3.org/XML/1998/namespace": {
+          "lang": "en"
           },
-        "Data": {
-          "Type": "string"
-          }
+        "_": "Symbol"
         },
-      {
-        "Id": "conversionfactor",
-        "Use": "optional",
-        "ShortName": "ConversionFactor",
-        "LongName": {
-          "http://www.w3.org/XML/1998/namespace": {
-            "lang": "en"
-            }
+      "DataType": "string"
+      },
+    {
+      "Id": "conversionfactor",
+      "ShortName": "ConversionFactor",
+      "LongName": {
+        "http://www.w3.org/XML/1998/namespace": {
+          "lang": "en"
           },
-        "Data": {
-          "Type": "string"
-          }
-        }
-      ],
-    "Key": {
+        "_": "Conversion Factor"
+        },
+      "DataType": "string"
+      }
+    ],
+  "Keys": [
+    {
       "Id": "codeKey",
       "ShortName": "CodeKey",
-      "ColumnRef": {
-        "Ref": "code"
-        }
+      "ColumnRef": "code"
       }
-    },
+    ],
   "Codes": [
     {
       "code": "10",
